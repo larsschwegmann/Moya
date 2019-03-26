@@ -1,15 +1,21 @@
-// swift-tools-version:4.0
+// swift-tools-version:5.0
 import PackageDescription
 
 let package = Package(
     name: "Moya",
+    platforms: [
+        .macOS(.v10_12),
+        .iOS(.v10),
+        .tvOS(.v10),
+        .watchOS(.v3)
+    ],
     products: [
         .library(name: "Moya", targets: ["Moya"]),
         .library(name: "ReactiveMoya", targets: ["ReactiveMoya"]),
         .library(name: "RxMoya", targets: ["RxMoya"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "4.1.0")),
+        .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.0.0-beta.3")),
         .package(url: "https://github.com/antitypical/Result.git", .upToNextMajor(from: "4.0.0")),
         .package(url: "https://github.com/ReactiveCocoa/ReactiveSwift.git", .upToNextMajor(from: ("4.0.0"))),
         .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "4.0.0"))
@@ -43,5 +49,5 @@ let package = Package(
                 "Sources/Supporting Files",
                 "Examples"])
     ],
-    swiftLanguageVersions: [3, 4]
+    swiftLanguageVersions: [.v4]
 )
