@@ -1,7 +1,7 @@
 import Quick
 import Nimble
 import Moya
-import Result
+
 
 final class AccessTokenPluginSpec: QuickSpec {
     struct TestTarget: TargetType, AccessTokenAuthorizable {

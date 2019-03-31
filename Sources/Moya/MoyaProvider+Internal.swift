@@ -1,5 +1,5 @@
 import Foundation
-import Result
+
 
 // MARK: - Method
 
@@ -253,13 +253,13 @@ private extension MoyaProvider {
             if let progressCompletion = progressCompletion {
                 switch progressAlamoRequest {
                 case let downloadRequest as DownloadRequest:
-                    progressCompletion(ProgressResponse(progress: downloadRequest.progress, response: result.value))
+                    progressCompletion(ProgressResponse(progress: downloadRequest.progress, response: try? result.get()))
                 case let uploadRequest as UploadRequest:
-                    progressCompletion(ProgressResponse(progress: uploadRequest.uploadProgress, response: result.value))
+                    progressCompletion(ProgressResponse(progress: uploadRequest.uploadProgress, response: try? result.get()))
                 case let dataRequest as DataRequest:
-                    progressCompletion(ProgressResponse(progress: dataRequest.progress, response: result.value))
+                    progressCompletion(ProgressResponse(progress: dataRequest.progress, response: try? result.get()))
                 default:
-                    progressCompletion(ProgressResponse(response: result.value))
+                    progressCompletion(ProgressResponse(response: try? result.get()))
                 }
             }
             completion(result)

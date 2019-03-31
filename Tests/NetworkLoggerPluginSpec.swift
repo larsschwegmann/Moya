@@ -1,7 +1,7 @@
 import Quick
 import Nimble
 import Moya
-import Result
+
 import enum Alamofire.AFError
 
 final class NetworkLoggerPluginSpec: QuickSpec {
